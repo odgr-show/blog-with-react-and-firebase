@@ -8,13 +8,18 @@ import { Logout } from "./components/Logout";
 import { NavBer } from "./components/NavBer";
 
 export const App = () => {
+    const [isAuth, setIsAuth] = useState(false);
+
     return (
         <Router>
             <NavBer />
             <Routes>
                 <Route path="/" element={<Home />}></Route>
                 <Route path="/createpost" element={<CreatePost />}></Route>
-                <Route path="/login" element={<Login />}></Route>
+                <Route
+                    path="/login"
+                    element={<Login setIsAuth={setIsAuth} />}
+                ></Route>
                 <Route path="/logout" element={<Logout />}></Route>
             </Routes>
         </Router>
