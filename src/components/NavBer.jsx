@@ -8,7 +8,7 @@ import {
     faFilePen,
 } from "@fortawesome/free-solid-svg-icons";
 
-export const NavBer = () => {
+export const NavBer = ({ isAuth }) => {
     return (
         <nav>
             <Link to="/">
@@ -19,10 +19,17 @@ export const NavBer = () => {
                 <FontAwesomeIcon icon={faFilePen} />
                 記事投稿
             </Link>
-            <Link to="/login">
-                <FontAwesomeIcon icon={faRightToBracket} />
-                ログイン
-            </Link>
+            {!isAuth ? (
+                <Link to="/login">
+                    <FontAwesomeIcon icon={faRightToBracket} />
+                    ログイン
+                </Link>
+            ) : (
+                <Link to="/logout">
+                    <FontAwesomeIcon icon={faRightToBracket} />
+                    ログアウト
+                </Link>
+            )}
         </nav>
     );
 };
