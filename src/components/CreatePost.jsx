@@ -1,10 +1,15 @@
 import React, { useState } from "react";
 
 import "./CreatePost.scss";
+import { addDoc, collection } from "firebase/firestore";
+import { auth, db } from "../firebase";
+import { useNavigate } from "react-router-dom";
 
 export const CreatePost = () => {
     const [title, setTitle] = useState();
     const [postText, setPostText] = useState();
+
+    const navigate = useNavigate();
 
     const inputTitle = (e) => {
         setTitle(e.target.value);
@@ -14,9 +19,17 @@ export const CreatePost = () => {
         setPostText(e.target.value);
     };
 
-    const createPost = () => {
-        console.log(title);
-        console.log(postText);
+    const createPost = async () => {
+        await addDoc(collection(db, "posts"), {
+            title,
+            postText,
+            author: {
+                username: auth.currentUser.displayName,
+                id: auth.currentUser.uid,
+            },
+        });
+
+        navigate("/");
     };
 
     return (
@@ -24,24 +37,24 @@ export const CreatePost = () => {
             <div className="postPage__container">
                 <div className="postPage__inner">
                     <div className="postPage__item">
-                        <h1>記事を投稿する</h1>
+                        <h1>Submit an article</h1>
                         <div className="inputPost">
-                            <div>タイトル</div>
+                            <div>Title</div>
                             <input
                                 type="text"
-                                placeholder="タイトルを記入"
+                                placeholder="enter title"
                                 onChange={inputTitle}
                             />
                         </div>
                         <div className="inputPost">
-                            <div>投稿</div>
+                            <div>Post</div>
                             <textarea
-                                placeholder="投稿内容を記入"
+                                placeholder="Fill in the post content"
                                 onChange={inputText}
                             ></textarea>
                         </div>
                         <button className="postButton" onClick={createPost}>
-                            <span>投稿する</span>
+                            <span>Post</span>
                             <svg width="13px" height="10px" viewBox="0 0 13 10">
                                 <path d="M1, 5 L11,5"></path>
                                 <polyline points="8 1 12 5 8 9"></polyline>

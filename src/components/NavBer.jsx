@@ -13,21 +13,21 @@ export const NavBer = ({ isAuth }) => {
         <nav>
             <Link to="/">
                 <FontAwesomeIcon icon={faHouse} />
-                ホーム
+                Home
             </Link>
             <Link to="/createpost">
                 <FontAwesomeIcon icon={faFilePen} />
-                記事投稿
+                Posts
             </Link>
             {!isAuth ? (
                 <Link to="/login">
                     <FontAwesomeIcon icon={faRightToBracket} />
-                    ログイン
+                    Login
                 </Link>
             ) : (
                 <Link to="/logout">
                     <FontAwesomeIcon icon={faRightToBracket} />
-                    ログアウト
+                    Logout
                 </Link>
             )}
         </nav>
