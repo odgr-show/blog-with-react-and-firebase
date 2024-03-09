@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 import "./CreatePost.scss";
 import { addDoc, collection } from "firebase/firestore";

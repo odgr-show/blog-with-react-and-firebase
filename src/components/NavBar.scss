@@ -4,7 +4,7 @@ nav {
     align-items: center;
     gap: 45px;
     height: 65px;
-    background-color: #ed89c2;
+    background-color: #ed89c280;
 
     & a {
         position: relative;
@@ -14,9 +14,6 @@ nav {
         transition: 0.3s ease;
 
         &:hover {
-            // color: #333;
-            transform: translateY(-5px);
-
             &::before {
                 width: 100%;
                 left: 0;

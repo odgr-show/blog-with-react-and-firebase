@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import "./App.scss";
 import { Home } from "./components/Home";
@@ -8,14 +8,14 @@ import { Logout } from "./components/Logout";
 import { NavBer } from "./components/NavBer";
 
 export const App = () => {
-    const [isAuth, setIsAuth] = useState(false);
+    const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
 
     return (
         <Router>
             <NavBer isAuth={isAuth} />
             <Routes>
                 <Route path="/" element={<Home />}></Route>
-                <Route path="/createpost" element={<CreatePost />}></Route>
+                <Route path="/CreatePost" element={<CreatePost />}></Route>
                 <Route
                     path="/login"
                     element={<Login setIsAuth={setIsAuth} />}
