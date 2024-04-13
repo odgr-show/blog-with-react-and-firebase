@@ -1,32 +1,32 @@
 import { Link } from "react-router-dom";
+
 import "./NavBar.scss";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-    faHouse,
-    faRightToBracket,
-    faFilePen,
-} from "@fortawesome/free-solid-svg-icons";
+
+import HomeIcon from "@mui/icons-material/Home";
+import NoteAltIcon from "@mui/icons-material/NoteAlt";
+import LoginIcon from "@mui/icons-material/Login";
+import LogoutIcon from "@mui/icons-material/Logout";
 
 export const NavBer = ({ isAuth }) => {
     return (
         <nav>
             <Link to="/">
-                <FontAwesomeIcon icon={faHouse} />
+                <HomeIcon />
                 Home
             </Link>
             {!isAuth ? (
                 <Link to="/login">
-                    <FontAwesomeIcon icon={faRightToBracket} />
+                    <LoginIcon />
                     Login
                 </Link>
             ) : (
                 <>
                     <Link to="/createpost">
-                        <FontAwesomeIcon icon={faFilePen} />
+                        <NoteAltIcon />
                         Posts
                     </Link>
                     <Link to="/logout">
-                        <FontAwesomeIcon icon={faRightToBracket} />
+                        <LogoutIcon />
                         Logout
                     </Link>
                 </>

@@ -1,0 +1,174 @@
+.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: calc(100vh - 65px);
+    // background: url() center / cover no-repeat;
+    background: url(../../public/NCG253-scaled.jpg) center / cover no-repeat;
+
+    &__box {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 400px;
+        height: 450px;
+        background: transparent;
+        border: 2px solid rgba(255, 255, 255, 0.5);
+        border-radius: 10px;
+        backdrop-filter: blur(5px);
+        box-shadow: -5px -5px 10px 0px rgba(255, 255, 255, 0.5),
+            5px 5px 10px 0px rgba(0, 0, 0, 0.3);
+
+        & h2 {
+            font-size: 2em;
+            // color: #fff;
+            text-align: center;
+        }
+
+        & .input-box {
+            position: relative;
+            width: 310px;
+            margin: 30px 0;
+            border-bottom: 2px solid #000;
+
+            & label {
+                position: absolute;
+                top: 50%;
+                left: 5px;
+                transform: translateY(-50%);
+                font-size: 1em;
+                // color: #fff;
+                pointer-events: none;
+                transition: 0.5s;
+            }
+
+            & input {
+                width: 100%;
+                height: 50px;
+                background: transparent;
+                border: none;
+                outline: none;
+                font-size: 1em;
+                // color: #fff;
+                padding: 0 8px 0 5px;
+
+                &:focus ~ label,
+                &:valid ~ label {
+                    top: -5px;
+                }
+
+                // &:valid ~ label {
+                //     top: -5px;
+                // }
+            }
+
+            & .icon {
+                position: absolute;
+                right: 8px;
+                // color: #fff;
+                font-size: 1.2em;
+                line-height: 57px;
+            }
+        }
+
+        & .remember-forget {
+            display: flex;
+            justify-content: space-between;
+            margin: -15px 0 15px;
+            font-size: 0.9em;
+            // color: #fff;
+
+            & label > input {
+                margin-right: 3px;
+            }
+
+            & a {
+                color: #000;
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        & .postButton {
+            display: block;
+            margin: 0 auto;
+            position: relative;
+            cursor: pointer;
+            padding: 19px 22px;
+            transition: all 0.2s ease;
+
+            &::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                display: block;
+                border-radius: 28px;
+                background: #ffab9d80;
+                width: 56px;
+                height: 56px;
+                transition: all 0.3s ease;
+            }
+
+            & > span {
+                position: relative;
+                font-size: 1rem;
+                line-height: 1rem;
+                font-weight: 900;
+                letter-spacing: 0.25em;
+                // text-transform: uppercase;
+                vertical-align: middle;
+            }
+
+            & > svg {
+                position: relative;
+                top: 0;
+                margin-left: 10px;
+                fill: none;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+                stroke: #111;
+                stroke-width: 2;
+                transform: translateX(-5px);
+                transition: all 0.3s ease;
+            }
+
+            &:hover {
+                &::before {
+                    width: 100%;
+                    background: #ffab9d;
+                }
+
+                & svg {
+                    transform: translateX(0);
+                }
+            }
+
+            &:active {
+                transform: scale(0.96);
+            }
+        }
+
+        & .register-link {
+            font-size: 0.9em;
+            // color: #fff;
+            text-align: center;
+            margin: 25px 0 10px;
+
+            & p > a {
+                color: #000;
+                text-decoration: none;
+                font-weight: 600;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
